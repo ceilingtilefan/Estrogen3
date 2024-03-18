@@ -1,4 +1,4 @@
-name: Build tweak
+name: Build and Release Tweak
 
 on:
   push:
@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install brew gmake
+        run: brew install make
+
       - name: Install Theos
         run: bash -c "$(curl -fsSL 'https://raw.githubusercontent.com/roothide/theos/master/bin/install-theos')"
 
@@ -22,13 +25,13 @@ jobs:
         run: echo "THEOS=~/theos" >> $GITHUB_ENV
 
       - name: Make tweak
-        run: make package
-
-      - name: Upload artifact
+        run: gmake -j$(sysctl -n hw.ncpu) package
+        
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: me.dleovl.estrogen_69.prf-1+debug_iphoneos-arm64e.deb
-          path: ./packages/me.dleovl.estrogen_69.prf-1+debug_iphoneos-arm64e.deb
+          name: estrogen
+          path: ./packages/*.deb
 
       - name: Delete old release
         uses: dev-drprasad/delete-tag-and-release@v0.2.1
@@ -41,13 +44,14 @@ jobs:
       - name: Get artifact
         uses: actions/download-artifact@v3
         with:
-          name: me.dleovl.estrogen_69.prf-1+debug_iphoneos-arm64e.deb
+          name: estrogen
+          path: ./artifacts/
 
       - name: Create new rolling release
         uses: ncipollo/release-action@v1
         with:
-          name: Rolling Release
-          body: "This is a parody and custom build of `flameaway/RemoveConfidential`.\nDo not use this `.deb` file unless you're content with the text in `Tweak.x`."
-          artifacts: "me.dleovl.estrogen_69.prf-1+debug_iphoneos-arm64e.deb"
+          name: "Estrogen Release"
+          body: "This is a 'parody' and custom build of `flameaway/RemoveConfidential`.\nDo not use this `.deb` file unless you're content with the text in `Tweak.x`."
+          artifacts: "./artifacts/*.deb"
           tag: release
           token: ${{ secrets.GITHUB_TOKEN }}
