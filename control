@@ -1,11 +1,11 @@
 Package: me.dleovl.estrogen
 Name: Estrogen
 Version: 69.prf
-Architecture: iphoneos-arm64e
-Description: Legal text changer for Serotonin.
+Architecture: iphoneos-arm64
+Description: Legal text changer
 Maintainer: dleovl
-Author: dleovl
-Section: Tweaks (Serotonin)
+Author: flame
+Section: Tweaks
 Icon: https://dleovl.github.io/repo/depictions/me.dleovl.estrogen/TweakIcon.png
 Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, firmware (>= 14.0)
 Conflicts: com.flame.removeconfidential
