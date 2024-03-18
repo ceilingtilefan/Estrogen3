@@ -7,5 +7,5 @@ Maintainer: dleovl
 Author: flame
 Section: Tweaks
 Icon: https://dleovl.github.io/repo/depictions/me.dleovl.estrogen/TweakIcon.png
-Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, firmware (>= 14.0)
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, firmware (>= 15.0)
 Conflicts: com.flame.removeconfidential
