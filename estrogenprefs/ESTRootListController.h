@@ -1,5 +1,5 @@
 #import <Preferences/PSListController.h>
-#include <roothide.h>
+#include <rootless.h>
 
 @interface ESTRootListController : PSListController
 

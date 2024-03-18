@@ -28,7 +28,7 @@
 - (void)respring {
     pid_t pid;
     const char* args[] = {"killall", "backboardd", NULL};
-    posix_spawn(&pid, jbroot("/usr/bin/killall"), NULL, NULL, (char* const*)args, NULL);
+    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
 }
 
 @end
