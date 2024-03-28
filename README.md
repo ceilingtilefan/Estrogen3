@@ -1,5 +1,5 @@
 # Estrogen
-This is a fork and parody of [flameaway/RemoveConfidential](https://github.com/flameaway/RemoveConfidential/).
+This is a fork and parody of [flameaway/RemoveConfidential](https://github.com/flameaway/RemoveConfidential/). Nothing substantial is owned by me.
 
 ## Usage
 This repository is meant to be used as an alternative to building with a computer. If you want to build this tweak for yourself, fork the repository and enable workflows in your forks 'Actions' tab. Change 'meow i love femboys :3' to a custom text of yours inside of `Tweak.x`, and commit the changes. Assuming Theos actually installs, a release will be made with your custom text.
